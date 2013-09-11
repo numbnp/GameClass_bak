@@ -18,7 +18,6 @@ type
     lblAccountAddress: TLabel;
     lblAccountPhone: TLabel;
     lblAccountPhoto: TLabel;
-    imgAccountPhotoBG: TImage;
     editAccountName: TDBEditEh;
     editAccountNumber: TDBEditEh;
     editAccountAddress: TDBEditEh;
@@ -84,6 +83,7 @@ type
     editHardCode: TDBEditEh;
     cbIgnoreHardCode: TDBCheckBoxEh;
     butGetCode: TButton;
+    imgAccountPhoto: TDBImage;
     procedure FormKeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
     procedure butCloseClick(Sender: TObject);
@@ -427,6 +427,8 @@ begin
   if editName.Text = '' then editName.Text := ' ';
   if editOt.Text = '' then editOt.Text := ' ';
 
+
+
   GAccountsCopy.Edit;
   GAccountsCopy.Post;
   //butAccountSave.Enabled := false;
@@ -672,7 +674,9 @@ end;
 procedure TfrmAccounts.butPhotoClick(Sender: TObject);
 begin
   if OpenDialog1.Execute then begin
-    //imgAccountPhoto.LoadFromFile(OpenDialog1.FileName);
+    imgAccountPhoto.Picture.LoadFromFile(OpenDialog1.FileName);
+    intCurentId := editAccountNumber.Text;
+    GAccountsCopy.Current.Photo := imgAccountPhoto.Picture;
     _OnChange(Sender);
   end;
 end;

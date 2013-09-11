@@ -24,7 +24,7 @@ object frmAccounts: TfrmAccounts
   object gbAccountInfo: TGroupBox
     Left = 264
     Top = 3
-    Width = 501
+    Width = 506
     Height = 282
     Caption = #1048#1085#1092#1086#1088#1084#1072#1094#1080#1103' '#1086#1073' '#1091#1095#1077#1090#1085#1086#1081' '#1079#1072#1087#1080#1089#1080
     TabOrder = 2
@@ -63,12 +63,6 @@ object frmAccounts: TfrmAccounts
       Height = 13
       Caption = #1060#1086#1090#1086
       Enabled = False
-    end
-    object imgAccountPhotoBG: TImage
-      Left = 12
-      Top = 19
-      Width = 100
-      Height = 100
     end
     object lblAccountEmail: TLabel
       Left = 120
@@ -169,8 +163,8 @@ object frmAccounts: TfrmAccounts
       OnEnter = editAccountNumberEnter
     end
     object butPhoto: TButton
-      Left = 80
-      Top = 125
+      Left = 82
+      Top = 124
       Width = 32
       Height = 20
       Caption = '...'
@@ -327,6 +321,15 @@ object frmAccounts: TfrmAccounts
       TabOrder = 14
       Visible = False
       OnChange = editReferalChange
+    end
+    object imgAccountPhoto: TDBImage
+      Left = 9
+      Top = 19
+      Width = 105
+      Height = 105
+      DataField = 'photo'
+      DataSource = dsrcAccounts
+      TabOrder = 16
     end
   end
   object gbBalanceInfo: TGroupBox
