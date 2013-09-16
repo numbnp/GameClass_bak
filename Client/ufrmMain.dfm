@@ -5,8 +5,8 @@ object frmMain: TfrmMain
   BorderIcons = [biSystemMenu]
   BorderStyle = bsSingle
   Caption = 'GameClass3 Client'
-  ClientHeight = 747
-  ClientWidth = 1134
+  ClientHeight = 575
+  ClientWidth = 730
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -28,14 +28,14 @@ object frmMain: TfrmMain
   object webSkin: TChromium
     Left = 0
     Top = 0
-    Width = 1134
-    Height = 747
+    Width = 730
+    Height = 575
     Align = alClient
+    DefaultUrl = 'about:blank'
     TabOrder = 2
     OnLoadEnd = webSkinLoadEnd
-    Options.AcceleratedPaintingDisabled = False
-    Options.AcceleratedFiltersDisabled = False
-    Options.AcceleratedPluginsDisabled = False
+    ExplicitWidth = 658
+    ExplicitHeight = 540
   end
   object pnlMain: TPanel
     Left = 644
@@ -98,7 +98,6 @@ object frmMain: TfrmMain
               Height = 289
               Align = alClient
               TabOrder = 0
-              OnNavigateComplete2 = wbAgreementNavigateComplete2
               ControlData = {
                 4C000000F13E0000DE1D00000000000000000000000000000000000000000000
                 000000004C000000000000000000000001000000E0D057007335CF11AE690800
@@ -186,7 +185,6 @@ object frmMain: TfrmMain
                 Width = 278
                 Height = 21
                 Style = csDropDownList
-                ItemHeight = 13
                 TabOrder = 0
                 OnChange = cboTarifsChange
                 Items.Strings = (
@@ -289,6 +287,8 @@ object frmMain: TfrmMain
                   Top = 44
                   Width = 82
                   Height = 21
+                  Margins.Left = 1
+                  Margins.Top = 1
                   AutoSize = False
                   DisplayFormat = ',0.00;-,0.00'
                   MaxLength = 20
@@ -365,6 +365,8 @@ object frmMain: TfrmMain
                   Top = 44
                   Width = 82
                   Height = 21
+                  Margins.Left = 1
+                  Margins.Top = 1
                   AutoSize = False
                   DisplayFormat = ',0.00;-,0.00'
                   MaxLength = 20
@@ -378,6 +380,8 @@ object frmMain: TfrmMain
                   Top = 44
                   Width = 82
                   Height = 21
+                  Margins.Left = 1
+                  Margins.Top = 1
                   AutoSize = False
                   DisplayFormat = ',0;-,0'
                   MaxLength = 20
@@ -393,7 +397,7 @@ object frmMain: TfrmMain
               ImageIndex = 2
               object pnlSendMessageBottom: TPanel
                 Left = 0
-                Top = 226
+                Top = 225
                 Width = 330
                 Height = 41
                 Align = alBottom
@@ -422,7 +426,7 @@ object frmMain: TfrmMain
                 Left = 0
                 Top = 0
                 Width = 330
-                Height = 226
+                Height = 225
                 Align = alClient
                 BevelOuter = bvNone
                 BorderWidth = 15
@@ -431,7 +435,7 @@ object frmMain: TfrmMain
                   Left = 15
                   Top = 15
                   Width = 300
-                  Height = 196
+                  Height = 195
                   Align = alClient
                   ReadOnly = True
                   ScrollBars = ssVertical
@@ -623,7 +627,6 @@ object frmMain: TfrmMain
             Width = 613
             Height = 329
             TabOrder = 0
-            OnNavigateComplete2 = wbCompFreeNavigateComplete2
             ControlData = {
               4C0000005B3F0000012200000000000000000000000000000000000000000000
               000000004C000000000000000000000001000000E0D057007335CF11AE690800
@@ -810,7 +813,6 @@ object frmMain: TfrmMain
               Height = 153
               Align = alClient
               TabOrder = 0
-              OnNavigateComplete2 = wbAccountNavigateComplete2
               ControlData = {
                 4C000000A9200000D00F00000000000000000000000000000000000000000000
                 000000004C000000000000000000000001000000E0D057007335CF11AE690800
@@ -833,7 +835,6 @@ object frmMain: TfrmMain
               Height = 165
               Align = alClient
               TabOrder = 0
-              OnNavigateComplete2 = wbAccountCompFreeNavigateComplete2
               ControlData = {
                 4C000000903F00000E1100000000000000000000000000000000000000000000
                 000000004C000000000000000000000001000000E0D057007335CF11AE690800
@@ -862,7 +863,6 @@ object frmMain: TfrmMain
         Height = 97
         Align = alClient
         TabOrder = 0
-        OnNavigateComplete2 = wbTopNavigateComplete2
         ControlData = {
           4C0000000B420000060A00000000000000000000000000000000000000000000
           000000004C000000000000000000000001000000E0D057007335CF11AE690800
@@ -917,8 +917,6 @@ object frmMain: TfrmMain
         ButtonWidth = 38
         Caption = 'tbActions'
         Color = clBtnFace
-        EdgeBorders = []
-        Flat = True
         Images = ilActions
         ParentColor = False
         TabOrder = 3
@@ -1081,7 +1079,7 @@ object frmMain: TfrmMain
     Left = 464
     Top = 380
     Bitmap = {
-      494C01010300040004001F001F0000000000FF10FFFFFFFFFFFFFFFF424D3600
+      494C01010300040010001F001F0000000000FF10FFFFFFFFFFFFFFFF424D3600
       00000000000036000000280000007C0000001F0000000100200000000000103C
       000000000000000000000000000000000000000000FF000000FF000000FF0000
       00FF000000FF000000FF000000FF000000FF000000FF000000FF000000FF0000

@@ -24,10 +24,10 @@ uses
   ExtCtrls,
   Buttons,
   Mask,
-  ToolEdit,
-  CurrEdit,
+  {ToolEdit,
+  CurrEdit,}
   ieConst,
-  IEDocHostUIHandler,
+//  IEDocHostUIHandler,
   Menus,
   uModernTrayIcon,uClientWebInterface,
   cefvcl,ceflib,
@@ -58,7 +58,7 @@ uCrossPlatformVKCodes,
   uBlockingsAndNotifications,
   uClientConst,
   ufrmSmallInfo, ImgList, ToolWin,
-  uClientFunctions;
+  uClientFunctions, RxToolEdit, RxCurrEdit;
 
 type                               
 
@@ -201,7 +201,7 @@ type
     procedure edtAddTrafficSizeExit(Sender: TObject);
     procedure memInfoChange(Sender: TObject);
 {$IFDEF MSWINDOWS}
-    procedure wbAccountNavigateComplete2(Sender: TObject;
+   { procedure wbAccountNavigateComplete2(Sender: TObject;
       const pDisp: IDispatch; var URL: OleVariant);
     procedure wbAccountCompFreeNavigateComplete2(Sender: TObject;
       const pDisp: IDispatch; var URL: OleVariant);
@@ -210,7 +210,7 @@ type
     procedure wbAgreementNavigateComplete2(Sender: TObject;
       const pDisp: IDispatch; var URL: OleVariant);
     procedure wbCompFreeNavigateComplete2(Sender: TObject;
-      const pDisp: IDispatch; var URL: OleVariant);
+      const pDisp: IDispatch; var URL: OleVariant);}
 {$ENDIF}
     procedure btnGuestClick(Sender: TObject);
     procedure btnAddTimeClick(Sender: TObject);
@@ -246,8 +246,7 @@ type
     procedure pnlCompNumberClick(Sender: TObject);
     procedure tbCompShutdownClick(Sender: TObject);
     procedure webSkinLoadEnd(Sender: TObject; const browser: ICefBrowser;
-      const frame: ICefFrame; httpStatusCode: Integer;
-      out Result: Boolean);
+      const frame: ICefFrame; httpStatusCode: Integer);
   private
     { Private declarations }
     FstrURLPath: String;
@@ -305,7 +304,7 @@ type
 var
   frmMain: TfrmMain;
 {$IFDEF MSWINDOWS}
-  GDocHostUIHandler: TDocHostUIHandler;
+//  GDocHostUIHandler: TDocHostUIHandler;
 {$ENDIF}
 
 implementation
@@ -693,7 +692,7 @@ begin
   FbBeforeFirstFormShow := True;
   FbAfterFirstFormShow := False;
 {$IFDEF MSWINDOWS}
-  GDocHostUIHandler := TDocHostUIHandler.Create;
+//  GDocHostUIHandler := TDocHostUIHandler.Create;
 {$ENDIF}
   FbOnChangeEnabled := True;
 {$IFDEF MSWINDOWS}
@@ -891,7 +890,7 @@ begin
 {$IFDEF LINUX}
 {$ENDIF}
 {$IFDEF MSWINDOWS}
-  GDocHostUIHandler.Free;
+//  GDocHostUIHandler.Free;
 {$ENDIF}
 end;
 
@@ -990,14 +989,14 @@ end;
 
 
 {$IFDEF MSWINDOWS}
-procedure TfrmMain.wbAccountNavigateComplete2(Sender: TObject;
+{procedure TfrmMain.wbAccountNavigateComplete2(Sender: TObject;
   const pDisp: IDispatch; var URL: OleVariant);
 var
   hr: HResult;
   CustDoc: ICustomDoc;
 begin
   hr := wbAccount.Document.QueryInterface(ICustomDoc, CustDoc);
-  if hr = S_OK then CustDoc.SetUIHandler(GDocHostUIHandler);
+//  if hr = S_OK then CustDoc.SetUIHandler(GDocHostUIHandler);
 end;
 
 procedure TfrmMain.wbAccountCompFreeNavigateComplete2(Sender: TObject;
@@ -1007,7 +1006,7 @@ var
   CustDoc: ICustomDoc;
 begin
   hr := wbAccountCompFree.Document.QueryInterface(ICustomDoc, CustDoc);
-  if hr = S_OK then CustDoc.SetUIHandler(GDocHostUIHandler);
+//  if hr = S_OK then CustDoc.SetUIHandler(GDocHostUIHandler);
 end;
 
 procedure TfrmMain.wbTopNavigateComplete2(Sender: TObject;
@@ -1017,8 +1016,10 @@ var
   CustDoc: ICustomDoc;
 begin
   hr := wbTop.Document.QueryInterface(ICustomDoc, CustDoc);
-  if hr = S_OK then CustDoc.SetUIHandler(GDocHostUIHandler);
+//  if hr = S_OK then CustDoc.SetUIHandler(GDocHostUIHandler);
 end;
+
+
 
 procedure TfrmMain.wbAgreementNavigateComplete2(Sender: TObject;
   const pDisp: IDispatch; var URL: OleVariant);
@@ -1027,7 +1028,7 @@ var
   CustDoc: ICustomDoc;
 begin
   hr := wbAgreement.Document.QueryInterface(ICustomDoc, CustDoc);
-  if hr = S_OK then CustDoc.SetUIHandler(GDocHostUIHandler);
+//  if hr = S_OK then CustDoc.SetUIHandler(GDocHostUIHandler);
 end;
 
 procedure TfrmMain.wbCompFreeNavigateComplete2(Sender: TObject;
@@ -1037,7 +1038,13 @@ var
   CustDoc: ICustomDoc;
 begin
   hr := wbCompFree.Document.QueryInterface(ICustomDoc, CustDoc);
-  if hr = S_OK then CustDoc.SetUIHandler(GDocHostUIHandler);
+//  if hr = S_OK then CustDoc.SetUIHandler(GDocHostUIHandler);
+end;
+}
+procedure TfrmMain.webSkinLoadEnd(Sender: TObject; const browser: ICefBrowser;
+  const frame: ICefFrame; httpStatusCode: Integer);
+begin
+  GCClientWebInterface.Loaded := True;
 end;
 {$ENDIF}
 
@@ -1209,12 +1216,6 @@ begin
 end;
 
 
-procedure TfrmMain.webSkinLoadEnd(Sender: TObject;
-  const browser: ICefBrowser; const frame: ICefFrame;
-  httpStatusCode: Integer; out Result: Boolean);
-begin
-  GCClientWebInterface.Loaded := True;
-end;
 
 end. ////////////////////////// end of file //////////////////////////////////
 
