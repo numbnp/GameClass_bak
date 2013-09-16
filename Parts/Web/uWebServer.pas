@@ -19,22 +19,22 @@ type
 
   TClientThread = class(TThread)
   private
-    procedure SendStr(s:TSocket;str:String);
+    procedure SendStr(s:TSocket;str:ansiString);
     procedure SendFile(s:TSocket;FileStream:TMemoryStream);
-    Function PrepareFile(FilePath:String): TMemoryStream;
+    Function PrepareFile(FilePath:AnsiString): TMemoryStream;
 
 //    function GetFilePath(FilePath:string):string;
-    function GetTypeContent(FilePath:string):string;
-    function ParseHttpRequest(recv:string): HttpRequest;
+    function GetTypeContent(FilePath:ansistring):ansistring;
+    function ParseHttpRequest(recv:ansistring): HttpRequest;
   public
     _Client :TSocket;
     DocumentRoot :String;
     DirectoryIndex :String;
     AddLog:procedure (str:string); stdcall;
     ExecuteClient:function (Request:HttpRequest):boolean; stdcall;
-    ParceAndReplaceLine:procedure (var Str:string); stdcall;
+    ParceAndReplaceLine:procedure (var Str:Ansistring); stdcall;
   protected
-    procedure AddToLog(str:string);
+    procedure AddToLog(str:ansistring);
     procedure Execute; override;
   end;
 
@@ -48,7 +48,7 @@ type
     DirectoryIndex:String;
     AddLog:procedure (str:string); stdcall;
     ExecuteClient:function (Request:HttpRequest):boolean; stdcall;
-    ParceAndReplaceLine:procedure (var Str:string); stdcall;
+    ParceAndReplaceLine:procedure (var Str:Ansistring); stdcall;
   protected
       procedure Execute; override;
   end;
@@ -64,7 +64,7 @@ type
 
     AddLog:procedure (str:string);  stdcall;
     ExecuteClient:function (Request:HttpRequest):boolean;  stdcall;
-    ParceAndReplaceLine:procedure (var Str:string); stdcall;
+    ParceAndReplaceLine:procedure (var Str:Ansistring); stdcall;
 
     constructor Create();
     procedure start();
@@ -75,14 +75,14 @@ Var
   MyWebServer: TMyWebServer;
 
 //function HexToInt(HexStr : string) : Int64;
-procedure StrBreakApart(const Source, Delimeter: string; Parts: TStrings);
-function UnpackKeyValue(const Str:string; var Key,Value:string):boolean;
+procedure StrBreakApart(const Source, Delimeter: ansistring; Parts: TStrings);
+function UnpackKeyValue(const Str:ansistring; var Key,Value:ansistring):boolean;
 
 
 
-function ReplaceSlash(Str: string): string;
-function ReplaceStr(Str, X, Y: string): string;
-function ReplaceWebCode(Str: string): string;
+function ReplaceSlash(Str: ansistring): ansistring;
+function ReplaceStr(Str, X, Y: ansistring): ansistring;
+function ReplaceWebCode(Str: ansistring): ansistring;
 
 
 implementation
@@ -176,7 +176,7 @@ end;
 
 { TClientThread }
 
-procedure TClientThread.AddToLog(str: string);
+procedure TClientThread.AddToLog(str: ansistring);
 begin
   if @AddLog <> nil then
     AddLog(str);
@@ -184,10 +184,10 @@ end;
 
 procedure TClientThread.Execute;
 var
- _buff: array [0..1024] of char;
- _request:string;
- _temp: string;
- _path: string;
+ _buff: array [0..1024] of AnsiChar;
+ _request:AnsiString;
+ _temp: Ansistring;
+ _path: Ansistring;
  _FileStream : TMemoryStream;
  _httpRequest : HttpRequest;
  _f:file of byte;
@@ -196,7 +196,7 @@ begin
   inherited;
 
   Recv(_client, _buff, 1024, 0);
-  _request:=string(_buff);
+  _request:=ansistring(_buff);
 
   if _request='' then
   begin
@@ -262,7 +262,7 @@ end;
 
 procedure TClientThread.SendFile(s: TSocket; FileStream: TMemoryStream);
 var
-  _buff:array [0..5000] of char;
+  _buff:array [0..500000] of ansichar;
   _ret:integer;
 begin
   while true do
@@ -274,7 +274,7 @@ begin
   end;
 end;
 
-procedure TClientThread.SendStr(s: TSocket; str: String);
+procedure TClientThread.SendStr(s: TSocket; str: ansiString);
 var
   _buff: array [0..255] of char;
   _temp: AnsiString;
@@ -286,16 +286,16 @@ begin
 end;
 
 
-function TClientThread.GetTypeContent(FilePath: string): string;
+function TClientThread.GetTypeContent(FilePath: ansistring): ansistring;
 var
-  ex:string;
+  ex:ansistring;
 begin
   ex:=UpperCase(ExtractFileExt(FilePath));
   if (ex='.HTM') or (ex='.HTML') then Result := 'text/html';
   if (ex='.CSS') then Result := 'text/css';
 end;
 
-function UnpackKeyValue(const Str:string; var Key,Value:string):boolean;
+function UnpackKeyValue(const Str:ansistring; var Key,Value:ansistring):boolean;
 var
   DelimeterPos:integer;
 begin
@@ -310,11 +310,11 @@ begin
   end;
 end;
 
-procedure StrBreakApart(const Source, Delimeter: string; Parts: TStrings);
+procedure StrBreakApart(const Source, Delimeter: ansistring; Parts: TStrings);
 var
  curPos: Integer;
- curStr: string;
- Key,Value:string;
+ curStr: ansistring;
+ Key,Value:ansistring;
 begin
  Parts.Clear;
  if Length(Source) = 0 then
@@ -336,14 +336,14 @@ begin
  end;
 end;
 
-function TClientThread.ParseHttpRequest(recv: string): HttpRequest;
+function TClientThread.ParseHttpRequest(recv: ansistring): HttpRequest;
 var
   tmp_slist,tmp_slist1:TStringList;
-  tmp_str:string;
+  tmp_str:ansistring;
   Res:HttpRequest;
   i:integer;
-  parametrs:string;
-  Key,Value:string;
+  parametrs:ansistring;
+  Key,Value:ansistring;
   CurrentRequestLineNumber: integer;
   Content_Length:integer;
 begin
@@ -408,18 +408,18 @@ begin
 end;
 
 
-function ReplaceSlash(Str: string): string;
+function ReplaceSlash(Str: ansistring): ansistring;
 begin
   Result := ReplaceStr(str,'/','\');
 end;
 
-function ReplaceStr(Str, X, Y: string): string;
+function ReplaceStr(Str, X, Y: ansistring): ansistring;
 {Str - строка, в которой будет производиться замена.
  X - подстрока, которая должна быть заменена.
  Y - подстрока, на которую будет произведена заменена}
 
 var
-  buf1, buf2, buffer: string;
+  buf1, buf2, buffer: ansistring;
 
 begin
   buf1 := '';
@@ -437,33 +437,10 @@ begin
   ReplaceStr := Buffer;
 end;
 
-{function HexToInt(HexStr : string) : Int64;
-var RetVar : Int64;
-    i : byte;
-begin
-  HexStr := UpperCase(HexStr);
-  if HexStr[length(HexStr)] = 'H' then
-     Delete(HexStr,length(HexStr),1);
-  RetVar := 0;
-
-  for i := 1 to length(HexStr) do begin
-      RetVar := RetVar shl 4;
-      if HexStr[i] in ['0'..'9'] then
-         RetVar := RetVar + (byte(HexStr[i]) - 48)
-      else
-         if HexStr[i] in ['A'..'F'] then
-            RetVar := RetVar + (byte(HexStr[i]) - 55)
-         else begin
-            Retvar := 0;
-            break;
-         end;
-  end;
-
-  Result := RetVar;
-end;}
 
 
-function ReplaceWebCode(Str: string): string;
+
+function ReplaceWebCode(Str: ansistring): ansistring;
 var ss: string;
 begin
   ss:= Str;
@@ -472,34 +449,15 @@ begin
   Result:=StringReplace(Result,'&gt;','>',[rfReplaceAll]);
 end;
 
-{Str - строка, в которой будет производиться замена.
-}
-{
-var
-  buf1, buf2, buffer: string;
 
-begin
-  buf1 := '';
-  buf2 := Str;
-  Buffer := Str;
-  while Pos('%', buf2) > 0 do
-  begin
-    buf2 := Copy(buf2, Pos('%', buf2), (Length(buf2) - Pos('%', buf2)) + 1);
-    buf1 := Copy(Buffer, 1, Length(Buffer) - Length(buf2)) + chr(HexToInt(copy(buf2,2,2)));
-    Delete(buf2, Pos('%', buf2), 3);
-    Buffer := buf1 + buf2;
-  end;
-  Buffer := ReplaceStr(Buffer, '+', ' ');
-  ReplaceWebCode := Buffer;
-end;    }
 
-Function TClientThread.PrepareFile(FilePath:String): TMemoryStream;
+Function TClientThread.PrepareFile(FilePath:AnsiString): TMemoryStream;
 var
   msResultFile: TMemoryStream;
-  sFileType: string;
+  sFileType: Ansistring;
   fFile: TextFile;
-  sBuf:string;
-  _Out_buff:array [0..5000] of char;
+  sBuf:Ansistring;
+  _Out_buff:array [0..5000] of ansichar;
   iBufSize:integer;
 begin
   msResultFile := TMemoryStream.Create;

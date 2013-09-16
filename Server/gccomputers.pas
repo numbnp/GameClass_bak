@@ -753,6 +753,7 @@ begin
     end;
     cmd := TOptionGetRemoteCommand.Create('all',Comps[index].ipaddr);
     cmd.Execute;
+    cmd.Free;
     SendAccountAndSessionInfoToClient(index);
   end;
   if Comps[index].ClientType = CT_SNMP then
@@ -770,6 +771,7 @@ var
   strParm: string;
   CompMainVolume,CompWaveVolume:integer;
   CompMuteVolume,CompOnlyLimitVolume:Boolean;
+  tmpStringList:TStringList;
 begin
   strParm := '';
 
@@ -865,9 +867,11 @@ begin
       UDPSend(ipaddr, STR_CMD_CLIENT_INFO_SET + '='
           + 'InternetUsedInKB'
           + '/' + IntToStr(Round(session.CurrentTraffic / 1024)));
+      tmpStringList := GClientOptions.GetRunPadHidedTabs(session.ShortTarifName);
       UDPSend(ipaddr, STR_CMD_CLIENT_INFO_SET + '='
           + 'RunPadHidedTabs' + '/'
-          + GClientOptions.GetRunPadHidedTabs(session.ShortTarifName).Text);
+          + tmpStringList.Text);
+      FreeAndNil(tmpStringList);
     end else begin
       UDPSend(ipaddr, STR_CMD_CLIENT_INFO_SET + '='
           + 'Stop'

@@ -6,7 +6,8 @@ uses
   inifiles, Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, IdComponent, IdTCPConnection, IdTCPClient, IdMessageClient,IdCoderHeader,
   IdSMTP, ComCtrls, StdCtrls, Buttons, ExtCtrls, IdBaseComponent, IdMessage,Registry,
-  uMail, IdExplicitTLSClientServerBase, IdSMTPBase;
+  uMail, IdExplicitTLSClientServerBase, IdSMTPBase,IdGlobal,IdEMailAddress, IdAttachment,
+  IdAttachmentFile;
 
 type
   TfrmMailSend = class(TForm)
@@ -144,7 +145,7 @@ end;
 
 procedure TfrmMailSend.btnSendMailClick(Sender: TObject);
 begin
-{
+
  // Проверяем настройку SMTP
  if GRegistry.Mail.SMTPHost='' then
  begin
@@ -159,9 +160,9 @@ begin
  SMTP.Port:=GRegistry.Mail.SMTPPort;
  // установка сообщения
  If GRegistry.Mail.SMTPUseAuth then
-   Smtp.AuthenticationType:=atLogin
+   Smtp.AuthType:=satDefault
  else
-   Smtp.AuthenticationType:=atNone;
+   Smtp.AuthType:=satNone;
  Smtp.Username:=GRegistry.Mail.SMTPUserName;
  Smtp.Password:=GRegistry.Mail.SMTPPassword;
 
@@ -173,12 +174,12 @@ begin
  MailMessage.Body.Text:=Memo2.Text; // текст сообщения
 
  if FileExists(ledAttachment.Text) then
-    TIdAttachment.Create(MailMessage.MessageParts,ledAttachment.Text);
+    TIdAttachmentFile.Create(MailMessage.MessageParts,ledAttachment.Text);
 
  // отправка почты
  try
   try
-   SMTP.Connect(1000);
+   SMTP.Connect;
    sleep(200);
    Application.ProcessMessages;
    SMTP.Send(MailMessage);
@@ -194,7 +195,7 @@ begin
   if SMTP.Connected then SMTP.Disconnect;
  end;
  MRUListsSave();
- }
+
 end;
 
 procedure TfrmMailSend.SMTPStatus(ASender: TObject; const AStatus: TIdStatus;

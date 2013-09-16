@@ -127,7 +127,7 @@ begin
                  Nil,
                  pIpe,
                  sizeof(icmp_echo_reply) + sizeof(pingBuffer),
-                 5000);
+                 200);
 
     error := GetLastError();
     if (error <> 0) then

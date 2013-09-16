@@ -217,7 +217,7 @@ end;
 // выполнить произвольную команду
 procedure ExecuteCommandLine (eCommandLine: string);
 begin
-  WinExec(PChar( eCommandLine), SW_SHOWNORMAL);
+  WinExec(PAnsiChar(Ansistring(eCommandLine)), SW_SHOWNORMAL);
 end;
 
 function EnablePrivilege(const AstrEnabledPrivilege: string;

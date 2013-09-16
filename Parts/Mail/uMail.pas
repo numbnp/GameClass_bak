@@ -3,8 +3,10 @@ unit uMail;
 interface
 
 uses
+  IdGlobal,
   IdSMTP,
   IdMessage,
+  IdEMailAddress,
   SysUtils,
   IdCoderMIME;
 
@@ -65,13 +67,16 @@ end;
 function TSendMail.Send: boolean;
 var
   res:Boolean;
+  IdEmailAddressItem: TIdEmailAddressItem;
 begin
-{  res := False;
+  res := False;
   FMessage.Subject := EncodeSubj(FMessage.Subject);
   try
     try
-      FSMTP.Connect(5000);
+      FSMTP.Connect;
       sleep(200);
+
+      IdEmailAddressItem := FMessage.Recipients.Add;
 
       FSMTP.Send(FMessage);
       _AddLog('Письмо отправлено!');
@@ -88,7 +93,7 @@ begin
   finally
     if FSMTP.Connected then FSMTP.Disconnect;
   end;
-  Result := res;}
+  Result := res;
   result:=false;
 end;
 

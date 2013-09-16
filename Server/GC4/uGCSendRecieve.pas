@@ -51,7 +51,7 @@ begin
 
   Buffer := BytesOf(strData);
 
-  udpClient.Host := '127.0.0.1';//AstrIP;
+  udpClient.Host := AstrIP;
   udpClient.Port := vport;
   udpClient.Send(strData, nil);
 

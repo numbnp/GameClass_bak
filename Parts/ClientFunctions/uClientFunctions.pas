@@ -39,7 +39,8 @@ uses
   uClientInfo,
   uClientInfoConst,
   SysUtils,
-  uDebugLog;
+  uDebugLog,
+  uCoder;
 
 
 // Функция логона клиента

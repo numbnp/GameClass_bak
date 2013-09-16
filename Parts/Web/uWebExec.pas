@@ -11,7 +11,7 @@ procedure StartWebServer;
 procedure StopWebServer;
 
 function ExecuteClient(Request:HttpRequest):boolean;  stdcall;
-procedure ParceAndReplaceLine(var Str:string);  stdcall;
+procedure ParceAndReplaceLine(var Str:Ansistring);  stdcall;
 
 implementation
 
@@ -40,9 +40,9 @@ begin
   MyWebServer.Destroy;
 end;
 
-procedure ParceAndReplaceLine(var Str:string);
+procedure ParceAndReplaceLine(var Str:Ansistring);
 begin
-  Str := ParseAndReplase(Str);
+  Str := Ansistring(ParseAndReplase(Str));
 end;
 
 function ExecuteClient(Request:HttpRequest):boolean;
