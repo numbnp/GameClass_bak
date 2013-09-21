@@ -73,7 +73,7 @@ procedure SystemLogoff;
 // выполнить произвольную команду
 procedure ExecuteCommandLine (eCommandLine: string);
 
-function ExecAndWait(const FileName, Params: ShortString;
+function ExecAndWait(const FileName, Params: String;
     const WinState: Word): boolean; export;
 
 function EnablePrivilege(const AstrEnabledPrivilege: string;
@@ -272,12 +272,12 @@ begin
 end; // EnablePrivilege
 
 
-function ExecAndWait(const FileName, Params: ShortString;
+function ExecAndWait(const FileName, Params: String;
     const WinState: Word): boolean; export;
 var
   StartInfo: TStartupInfo;
   ProcInfo: TProcessInformation;
-  CmdLine: ShortString;
+  CmdLine: String;
 begin
   { Помещаем имя файла между кавычками,
   с соблюдением всех пробелов в именах Win9x }

@@ -512,8 +512,10 @@ end; // TClientOptions.ReleaseInstance
 // properties methods
 
 procedure TClientOptions.Load();
+{$IFDEF GC3SERVER}
 var
   tmpStringList:TStringList;
+{$ENDIF}
 begin
   Debug.Trace5('TClientOptions.Load');
 try

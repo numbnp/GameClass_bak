@@ -88,6 +88,8 @@
         <DCC_Define>DEBUG;$(DCC_Define)</DCC_Define>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2_Win32)'!=''">
+        <DCC_UNSAFE_CODE>false</DCC_UNSAFE_CODE>
+        <DCC_UNSAFE_CAST>false</DCC_UNSAFE_CAST>
         <VerInfo_Release>0</VerInfo_Release>
         <VerInfo_MinorVer>0</VerInfo_MinorVer>
         <VerInfo_MajorVer>1</VerInfo_MajorVer>

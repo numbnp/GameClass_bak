@@ -97,7 +97,7 @@ var
   bAll: Boolean;
   strDefaultBlock: String;
   lstTarifNames: TStringList;
-  tmpStringList: TStringList;
+//  tmpStringList: TStringList;
 begin
   bAll := False;
   if CompareText(FstrOptionName,'All') = 0 then

@@ -245,6 +245,9 @@ var
   i: Integer;
 {$ENDIF}
 begin
+{$IFDEF GCCLSRV}
+  cmd := nil;
+{$ENDIF}
   while(TRUE) do begin
   try
 //if(False) then begin

@@ -1729,7 +1729,7 @@ var
   FReportParameters:TReportParameters;
   SendMail:TSendMail;
 begin
-
+ { TODO : Вытащить код из формы отправки почты в млдуль }
   {
   FReportParameters.dtCurrent := GetVirtualTime;
   FReportParameters.dtBegin := 0;
