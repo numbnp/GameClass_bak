@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<nodeSet version="1.0">
+  <view uin="sdj6oza172tkine6n_v">
+    <property name="$defaultDiagram" value="true" />
+    <property name="$metaclass" value="Package Diagram" />
+    <property name="$name" value="default" />
+    <reference referencedUin="delphi:e_class:src:ProcUtils:uDebugLog.@unitclass">
+      <property name="$shortcutReference" value="true" />
+      <reference referencedUin="delphi:e_field:src:ProcUtils:uDebugLog.@unitclass.Debug" />
+      <reference referencedUin="delphi:e_field:src:ProcUtils:uDebugLog.@unitclass.csWriteDebugLog" />
+      <reference referencedUin="delphi:e_field:src:ProcUtils:uDebugLog.@unitclass.MIN_LEVEL" />
+      <reference referencedUin="delphi:e_field:src:ProcUtils:uDebugLog.@unitclass.MAX_LEVEL" />
+      <reference referencedUin="delphi:e_field:src:ProcUtils:uDebugLog.@unitclass.CLINET_DEBUG_LOG_FILENAME" />
+      <reference referencedUin="delphi:e_field:src:ProcUtils:uDebugLog.@unitclass.LINUX_CLINET_DEBUG_LOG_FILENAME" />
+      <reference referencedUin="delphi:e_field:src:ProcUtils:uDebugLog.@unitclass.SERVICE_DEBUG_LOG_FILENAME" />
+      <reference referencedUin="delphi:e_field:src:ProcUtils:uDebugLog.@unitclass.SERVER_DEBUG_LOG_FILENAME" />
+      <reference referencedUin="delphi:e_field:src:ProcUtils:uDebugLog.@unitclass.DEFAULT_DEBUG_LOG_FILENAME" />
+      <reference referencedUin="delphi:l_ast:src:ProcUtils:uDebugLog.@unitclass.Debug" />
+    </reference>
+    <reference referencedUin="delphi:e_class:src:ProcUtils:uDebugLog.TDebugLog">
+      <property name="$shortcutReference" value="true" />
+      <property name="bounds" value="10,10,195,927" />
+      <reference referencedUin="delphi:e_field:src:ProcUtils:uDebugLog.TDebugLog.FstrFileName" />
+      <reference referencedUin="delphi:e_field:src:ProcUtils:uDebugLog.TDebugLog.FnLevel" />
+      <reference referencedUin="delphi:e_field:src:ProcUtils:uDebugLog.TDebugLog.FbEnable" />
+      <reference referencedUin="delphi:e_field:src:ProcUtils:uDebugLog.TDebugLog.FnStoredLevel" />
+      <reference referencedUin="delphi:e_field:src:ProcUtils:uDebugLog.TDebugLog.FbIsShowDatetime" />
+      <reference referencedUin="delphi:e_field:src:ProcUtils:uDebugLog.TDebugLog.FTraceDirection" />
+      <reference referencedUin="delphi:e_field:src:ProcUtils:uDebugLog.TDebugLog.FnMaxSizeInKb" />
+      <reference referencedUin="delphi:e_method:src:ProcUtils:uDebugLog.TDebugLog._Init()" />
+      <reference referencedUin="delphi:e_method:src:ProcUtils:uDebugLog.TDebugLog._Trace(System.string)" />
+      <reference referencedUin="delphi:e_method:src:ProcUtils:uDebugLog.TDebugLog._TraceToFile(System.string)" />
+      <reference referencedUin="delphi:e_method:src:ProcUtils:uDebugLog.TDebugLog._TraceToDebugWindow(System.string)" />
+      <reference referencedUin="delphi:e_method:src:ProcUtils:uDebugLog.TDebugLog._TraceToScreen(System.string)" />
+      <reference referencedUin="delphi:e_method:src:ProcUtils:uDebugLog.TDebugLog._CutFile(ref@)" />
+      <reference referencedUin="delphi:e_method:src:ProcUtils:uDebugLog.TDebugLog.SetLevel(System.Integer)" />
+      <reference referencedUin="delphi:e_method:src:ProcUtils:uDebugLog.TDebugLog.GetLevel()" />
+      <reference referencedUin="delphi:e_method:src:ProcUtils:uDebugLog.TDebugLog.SetEnable(System.Boolean)" />
+      <reference referencedUin="delphi:e_method:src:ProcUtils:uDebugLog.TDebugLog.GetEnable()" />
+      <reference referencedUin="delphi:e_method:src:ProcUtils:uDebugLog.TDebugLog.CreateInstance()" />
+      <reference referencedUin="delphi:e_method:src:ProcUtils:uDebugLog.TDebugLog.AccessInstance(uY2KCommon.TSingletonOperation)" />
+      <reference referencedUin="delphi:e_method:src:ProcUtils:uDebugLog.TDebugLog.Create()" />
+      <reference referencedUin="delphi:e_method:src:ProcUtils:uDebugLog.TDebugLog.Destroy()" />
+      <reference referencedUin="delphi:e_method:src:ProcUtils:uDebugLog.TDebugLog.Instance()" />
+      <reference referencedUin="delphi:e_method:src:ProcUtils:uDebugLog.TDebugLog.ReleaseInstance()" />
+      <reference referencedUin="delphi:e_method:src:ProcUtils:uDebugLog.TDebugLog.GetLogSize()" />
+      <reference referencedUin="delphi:e_method:src:ProcUtils:uDebugLog.TDebugLog.Clear()" />
+      <reference referencedUin="delphi:e_method:src:ProcUtils:uDebugLog.TDebugLog.StoreLevel()" />
+      <reference referencedUin="delphi:e_method:src:ProcUtils:uDebugLog.TDebugLog.RestoreLevel()" />
+      <reference referencedUin="delphi:e_method:src:ProcUtils:uDebugLog.TDebugLog.LevelUp()" />
+      <reference referencedUin="delphi:e_method:src:ProcUtils:uDebugLog.TDebugLog.LevelDown()" />
+      <reference referencedUin="delphi:e_method:src:ProcUtils:uDebugLog.TDebugLog.Trace(System.string,System.Integer)" />
+      <reference referencedUin="delphi:e_method:src:ProcUtils:uDebugLog.TDebugLog.Trace0(System.string)" />
+      <reference referencedUin="delphi:e_method:src:ProcUtils:uDebugLog.TDebugLog.Trace1(System.string)" />
+      <reference referencedUin="delphi:e_method:src:ProcUtils:uDebugLog.TDebugLog.Trace2(System.string)" />
+      <reference referencedUin="delphi:e_method:src:ProcUtils:uDebugLog.TDebugLog.Trace3(System.string)" />
+      <reference referencedUin="delphi:e_method:src:ProcUtils:uDebugLog.TDebugLog.Trace4(System.string)" />
+      <reference referencedUin="delphi:e_method:src:ProcUtils:uDebugLog.TDebugLog.Trace5(System.string)" />
+      <reference referencedUin="delphi:e_method:src:ProcUtils:uDebugLog.TDebugLog.Trace6(System.string)" />
+      <reference referencedUin="delphi:e_method:src:ProcUtils:uDebugLog.TDebugLog.Trace7(System.string)" />
+      <reference referencedUin="delphi:e_method:src:ProcUtils:uDebugLog.TDebugLog.Trace8(System.string)" />
+      <reference referencedUin="delphi:e_method:src:ProcUtils:uDebugLog.TDebugLog.Trace9(System.string)" />
+      <reference referencedUin="delphi:e_method:src:ProcUtils:uDebugLog.TDebugLog.TraceDebug(System.string,System.Integer)" />
+      <reference referencedUin="delphi:e_method:src:ProcUtils:uDebugLog.TDebugLog.TraceDebug0(System.string)" />
+      <reference referencedUin="delphi:e_method:src:ProcUtils:uDebugLog.TDebugLog.TraceDebug1(System.string)" />
+      <reference referencedUin="delphi:e_method:src:ProcUtils:uDebugLog.TDebugLog.TraceDebug2(System.string)" />
+      <reference referencedUin="delphi:e_method:src:ProcUtils:uDebugLog.TDebugLog.TraceDebug3(System.string)" />
+      <reference referencedUin="delphi:e_method:src:ProcUtils:uDebugLog.TDebugLog.TraceDebug4(System.string)" />
+      <reference referencedUin="delphi:e_method:src:ProcUtils:uDebugLog.TDebugLog.TraceDebug5(System.string)" />
+      <reference referencedUin="delphi:e_method:src:ProcUtils:uDebugLog.TDebugLog.TraceDebug6(System.string)" />
+      <reference referencedUin="delphi:e_method:src:ProcUtils:uDebugLog.TDebugLog.TraceDebug7(System.string)" />
+      <reference referencedUin="delphi:e_method:src:ProcUtils:uDebugLog.TDebugLog.TraceDebug8(System.string)" />
+      <reference referencedUin="delphi:e_method:src:ProcUtils:uDebugLog.TDebugLog.TraceDebug9(System.string)" />
+      <reference referencedUin="delphi:e_property:src:ProcUtils:uDebugLog.TDebugLog.FileName" />
+      <reference referencedUin="delphi:e_property:src:ProcUtils:uDebugLog.TDebugLog.Level" />
+      <reference referencedUin="delphi:e_property:src:ProcUtils:uDebugLog.TDebugLog.Enable" />
+      <reference referencedUin="delphi:e_property:src:ProcUtils:uDebugLog.TDebugLog.IsShowDatetime" />
+      <reference referencedUin="delphi:e_property:src:ProcUtils:uDebugLog.TDebugLog.TraceDirection" />
+      <reference referencedUin="delphi:l_ast:src:ProcUtils:uDebugLog.TDebugLog.FTraceDirection">
+        <property name="sourceAnchor" value="205,69" />
+        <property name="targetAnchor" value="320,69" />
+        <property name="bendpoints" value="" />
+      </reference>
+      <reference referencedUin="delphi:l_ast:src:ProcUtils:uDebugLog.TDebugLog.TraceDirection">
+        <property name="sourceAnchor" value="205,61" />
+        <property name="targetAnchor" value="320,61" />
+        <property name="bendpoints" value="" />
+      </reference>
+    </reference>
+    <reference referencedUin="delphi:e_class:src:ProcUtils:uDebugLog.TTraceDirection">
+      <property name="$shortcutReference" value="true" />
+      <property name="bounds" value="320,20,157,98" />
+      <property name="location_set_by_user" value="True" />
+      <reference referencedUin="delphi:e_field:src:ProcUtils:uDebugLog.TTraceDirection.DLTD_FILE" />
+      <reference referencedUin="delphi:e_field:src:ProcUtils:uDebugLog.TTraceDirection.DLTD_SCREEN" />
+      <reference referencedUin="delphi:e_field:src:ProcUtils:uDebugLog.TTraceDirection.DLTD_DEBUG_WINDOW" />
+    </reference>
+  </view>
+</nodeSet>
