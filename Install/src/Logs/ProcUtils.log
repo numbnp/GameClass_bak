@@ -1,5 +1,0 @@
-Embarcadero Delphi for Win32 compiler version 25.0
-Copyright (c) 1983,2013 Embarcadero Technologies, Inc.
-ProcUtils.dpr(230) Warning: W1035 Return value of function 'GetTasksList' might be undefined
-ProcUtils.dpr(270) Warning: W1035 Return value of function 'GetProcessFileName' might be undefined
-1893 lines, 1.11 seconds, 1815292 bytes code, 42016 bytes data.

@@ -1,8 +1,0 @@
-Embarcadero Delphi for Win32 compiler version 25.0
-Copyright (c) 1983,2013 Embarcadero Technologies, Inc.
-gcosqlexecute.pas(93) Hint: H2077 Value assigned to 'FileExecute' never used
-gcosqlexecute.pas(203) Warning: W1035 Return value of function 'UpdateCustomReport' might be undefined
-C:\Project\Free\Parts\Reports\uReportResultsDataSet.pas(129) Warning: W1000 Symbol 'GetLocaleFormatSettings' is deprecated: 'Use TFormatSettings.Create(Locale)'
-C:\Project\Free\Parts\Reports\uReportResultsDataSet.pas(129) Warning: W1002 Symbol 'GetLocaleFormatSettings' is specific to a platform
-C:\Project\Free\Parts\Reports\uReport.pas(197) Hint: H2443 Inline function 'TObjectList.Remove' has not been expanded because unit 'System.Types' is not specified in USES list
-7855 lines, 1.42 seconds, 2656992 bytes code, 47032 bytes data.
