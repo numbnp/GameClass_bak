@@ -28,6 +28,12 @@
         <CfgParent>Base</CfgParent>
         <Base>true</Base>
     </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win32' and '$(Cfg_1)'=='true') or '$(Cfg_1_Win32)'!=''">
+        <Cfg_1_Win32>true</Cfg_1_Win32>
+        <CfgParent>Cfg_1</CfgParent>
+        <Cfg_1>true</Cfg_1>
+        <Base>true</Base>
+    </PropertyGroup>
     <PropertyGroup Condition="'$(Config)'=='Debug' or '$(Cfg_2)'!=''">
         <Cfg_2>true</Cfg_2>
         <CfgParent>Base</CfgParent>
@@ -78,16 +84,32 @@
         <Icon_MainIcon>GCServer_Icon8.ico</Icon_MainIcon>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1)'!=''">
+        <VerInfo_Keys>CompanyName=NodaSoft, numb;FileDescription=GC3Server;FileVersion=3.85.7.0;InternalName=;LegalCopyright=(c) 2000-2009 NodaSoft, 2010-2013 numb;LegalTrademarks=;OriginalFilename=;ProductName=GameClass3;ProductVersion=3.85.7.0</VerInfo_Keys>
+        <DCC_AssertionsAtRuntime>false</DCC_AssertionsAtRuntime>
+        <DCC_Hints>false</DCC_Hints>
+        <DCC_ImportedDataReferences>false</DCC_ImportedDataReferences>
+        <Manifest_File>None</Manifest_File>
+        <DCC_Warnings>false</DCC_Warnings>
+        <DCC_Optimize>true</DCC_Optimize>
         <DCC_DebugInformation>false</DCC_DebugInformation>
         <DCC_Define>RELEASE;$(DCC_Define)</DCC_Define>
         <DCC_SymbolReferenceInfo>0</DCC_SymbolReferenceInfo>
         <DCC_LocalDebugSymbols>false</DCC_LocalDebugSymbols>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_1_Win32)'!=''">
+        <DCC_ExeOutput>C:\Project\Free\Output\Release\</DCC_ExeOutput>
+        <VerInfo_MinorVer>0</VerInfo_MinorVer>
+        <VerInfo_MajorVer>1</VerInfo_MajorVer>
+        <VerInfo_Release>0</VerInfo_Release>
+        <VerInfo_Keys>CompanyName=;FileDescription=;FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=;ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
+        <DCC_DcuOutput>C:\Project\Free\Output\Dcu\release\</DCC_DcuOutput>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2)'!=''">
         <DCC_GenerateStackFrames>true</DCC_GenerateStackFrames>
         <DCC_Define>DEBUG;$(DCC_Define)</DCC_Define>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2_Win32)'!=''">
+        <DCC_DcuOutput>C:\Project\Free\Output\Dcu\debug\server\</DCC_DcuOutput>
         <DCC_UNSAFE_CAST>false</DCC_UNSAFE_CAST>
         <DCC_UNSAFE_CODE>false</DCC_UNSAFE_CODE>
         <DCC_GenerateStackFrames>false</DCC_GenerateStackFrames>

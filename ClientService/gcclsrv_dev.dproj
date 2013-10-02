@@ -39,6 +39,12 @@
         <CfgParent>Base</CfgParent>
         <Base>true</Base>
     </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win32' and '$(Cfg_2)'=='true') or '$(Cfg_2_Win32)'!=''">
+        <Cfg_2_Win32>true</Cfg_2_Win32>
+        <CfgParent>Cfg_2</CfgParent>
+        <Cfg_2>true</Cfg_2>
+        <Base>true</Base>
+    </PropertyGroup>
     <PropertyGroup Condition="'$(Base)'!=''">
         <Icon_MainIcon>$(BDS)\bin\delphi_PROJECTICON.ico</Icon_MainIcon>
         <DCC_Namespace>System;Xml;Data;Datasnap;Web;Soap;Vcl;Vcl.Imaging;Vcl.Touch;Vcl.Samples;Vcl.Shell;$(DCC_Namespace)</DCC_Namespace>
@@ -71,7 +77,7 @@
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1_Win32)'!=''">
         <DCC_ExeOutput>..\Output\debug</DCC_ExeOutput>
-        <DCC_DcuOutput>..\Output\dcu\debug</DCC_DcuOutput>
+        <DCC_DcuOutput>..\Output\dcu\debug\gcclsrv</DCC_DcuOutput>
         <DCC_MapFile>3</DCC_MapFile>
         <DCC_UnitSearchPath>$(DELPHI)\Lib\Debug;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
         <DCC_Define>GCCLSRV;madExcept;$(DCC_Define)</DCC_Define>
@@ -84,6 +90,13 @@
         <DCC_Define>RELEASE;$(DCC_Define)</DCC_Define>
         <DCC_SymbolReferenceInfo>0</DCC_SymbolReferenceInfo>
         <DCC_DebugInformation>false</DCC_DebugInformation>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_2_Win32)'!=''">
+        <DCC_ExeOutput>..\Output\release</DCC_ExeOutput>
+        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+        <DCC_DcuOutput>..\Output\dcu\release</DCC_DcuOutput>
+        <VerInfo_Locale>1033</VerInfo_Locale>
+        <DCC_UnitSearchPath>$(DELPHI)\Lib\Debug;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
     </PropertyGroup>
     <ItemGroup>
         <DelphiCompile Include="$(MainSource)">

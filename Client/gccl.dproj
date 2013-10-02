@@ -28,6 +28,12 @@
         <CfgParent>Base</CfgParent>
         <Base>true</Base>
     </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win32' and '$(Cfg_1)'=='true') or '$(Cfg_1_Win32)'!=''">
+        <Cfg_1_Win32>true</Cfg_1_Win32>
+        <CfgParent>Cfg_1</CfgParent>
+        <Cfg_1>true</Cfg_1>
+        <Base>true</Base>
+    </PropertyGroup>
     <PropertyGroup Condition="'$(Config)'=='Debug' or '$(Cfg_2)'!=''">
         <Cfg_2>true</Cfg_2>
         <CfgParent>Base</CfgParent>
@@ -83,13 +89,28 @@
         <DCC_Define>RELEASE;$(DCC_Define)</DCC_Define>
         <DCC_SymbolReferenceInfo>0</DCC_SymbolReferenceInfo>
     </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_1_Win32)'!=''">
+        <DCC_DebugInformation>true</DCC_DebugInformation>
+        <DCC_Define>madExcept;ASPROTECT;GCCL;$(DCC_Define)</DCC_Define>
+        <DCC_LocalDebugSymbols>true</DCC_LocalDebugSymbols>
+        <DCC_MapFile>3</DCC_MapFile>
+        <DCC_ExeOutput>C:\Project\Free\Output\Release\</DCC_ExeOutput>
+        <DCC_DcuOutput>..\Output\dcu\release</DCC_DcuOutput>
+        <VerInfo_MajorVer>1</VerInfo_MajorVer>
+        <VerInfo_MinorVer>0</VerInfo_MinorVer>
+        <VerInfo_Release>0</VerInfo_Release>
+        <VerInfo_Build>0</VerInfo_Build>
+        <VerInfo_Keys>CompanyName=;FileDescription=;FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=;ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
+        <VerInfo_Locale>1033</VerInfo_Locale>
+    </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2)'!=''">
         <DCC_GenerateStackFrames>true</DCC_GenerateStackFrames>
         <DCC_Define>DEBUG;$(DCC_Define)</DCC_Define>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2_Win32)'!=''">
-        <DCC_UNSAFE_CODE>false</DCC_UNSAFE_CODE>
+        <DCC_DcuOutput>..\Output\dcu\debug\gccl</DCC_DcuOutput>
         <DCC_UNSAFE_CAST>false</DCC_UNSAFE_CAST>
+        <DCC_UNSAFE_CODE>false</DCC_UNSAFE_CODE>
         <VerInfo_Release>0</VerInfo_Release>
         <VerInfo_MinorVer>0</VerInfo_MinorVer>
         <VerInfo_MajorVer>1</VerInfo_MajorVer>
@@ -97,7 +118,7 @@
         <VerInfo_Build>0</VerInfo_Build>
         <VerInfo_Locale>1033</VerInfo_Locale>
         <DCC_MapFile>3</DCC_MapFile>
-        <DCC_Define>madExcept;GCCL;$(DCC_Define)</DCC_Define>
+        <DCC_Define>madExcept;GCCL;ASPROTECT;GCCL;$(DCC_Define)</DCC_Define>
     </PropertyGroup>
     <ItemGroup>
         <DelphiCompile Include="$(MainSource)">

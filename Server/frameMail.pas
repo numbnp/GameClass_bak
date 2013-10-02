@@ -172,16 +172,16 @@ procedure TframMail.butTestClick(Sender: TObject);
 var
   SendMail:TSendMail;
 begin
-  {SendMail:= TSendMail.Create;
+  SendMail:= TSendMail.Create;
   SendMail.AddLog := @AddLog;
 
   SendMail.SMTP.Host:=GRegistry.Mail.SMTPHost;
   SendMail.SMTP.Port:=GRegistry.Mail.SMTPPort;
   // установка сообщения
   if GRegistry.Mail.SMTPUseAuth then
-    SendMail.Smtp.AuthenticationType:=atLogin  // atLogin
+    SendMail.Smtp.AuthType:=satDefault  // atLogin
   else
-    SendMail.Smtp.AuthenticationType:=atNone; // atNone
+    SendMail.Smtp.AuthType:=satNone; // atNone
   SendMail.Smtp.Username:=GRegistry.Mail.SMTPUserName;
   SendMail.Smtp.Password:=GRegistry.Mail.SMTPPassword;
   SendMail.MailMessage.From.Name:='GameClass';
@@ -198,7 +198,7 @@ begin
                                   + '4276852037570655 Карта Сбербанк' + #13 + #10
                                   + '                                     numb)';
   SendMail.Send;
-  SendMail.Destroy;}
+  SendMail.Destroy;
 end;
 
 Procedure AddLog(str:string);

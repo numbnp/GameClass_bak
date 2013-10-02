@@ -13,9 +13,6 @@ program GCServer;
   {$MESSAGE WARN '!!! Assert directives present !!!'}
 {$ENDIF}
 
-
-
-
 uses
   FastMM4,
   FastMM4Messages,

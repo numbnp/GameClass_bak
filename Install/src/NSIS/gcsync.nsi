@@ -86,7 +86,7 @@ Section "Обновление БД" SEC02
   SectionIn 1
   SetOutPath "$INSTDIR\SQL"
   SetOverwrite ifnewer
-  File "c:\Projects\Free\Install\src\Packages\GCSync\*.sqp"
+  File "c:\Projects\Free\Install\src\Packages\GCSync\*.sql"
   SetOutPath "$INSTDIR\SQL"
   SetOverwrite ifnewer
   File "c:\Projects\Free\Install\src\Packages\GCSync\*.xml"
