@@ -9,7 +9,7 @@ object framComputers: TframComputers
     Top = 0
     Width = 561
     Height = 488
-    ActivePage = tabGroups
+    ActivePage = tabComputers
     Align = alClient
     MultiLine = True
     TabOrder = 0
@@ -79,14 +79,12 @@ object framComputers: TframComputers
         Height = 412
         Align = alClient
         AutoFitColWidths = True
-        BiDiMode = bdRightToLeftNoAlign
         DataSource = dsComputers
         DynProps = <>
         Flat = True
         FooterParams.Color = clWindow
         IndicatorOptions = []
         Options = [dgEditing, dgTitles, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
-        ParentBiDiMode = False
         TabOrder = 0
         OnColExit = gridComputersColExit
         OnExit = gridComputersExit
